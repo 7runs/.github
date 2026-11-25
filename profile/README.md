@@ -23,7 +23,7 @@ Expect **14/14 executions passed**. The suite checks a text verdict and a JSON r
 |---|---|
 | Your agent runs as a script, binary or SDK wrapper | [Connect a local command](https://github.com/7runs/.github/blob/main/examples/generic-adapter/README.md#connect-a-local-command). Send the prompt on stdin and print the answer on stdout. |
 | Your agent accepts HTTP requests | [Connect an HTTP endpoint](https://github.com/7runs/.github/blob/main/examples/generic-adapter/README.md#connect-an-http-endpoint). Set the endpoint URL, response field and checks. |
-| Your suite works locally and you want to run it on GitHub | [Add the GitHub Actions workflow](https://github.com/7runs/.github/blob/main/.github/workflows/7runs.yml) to your repository. |
+| You want to test your agent in its GitHub repository | [Set up GitHub Actions and download the reports](https://github.com/7runs/.github/blob/main/examples/github-actions/README.md). |
 
 You can [view workflow runs](https://github.com/7runs/.github/actions/workflows/7runs.yml) in this public repository.
 

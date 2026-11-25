@@ -80,4 +80,4 @@ mkdir -p ../my-agent/examples
 cp -R examples/generic-adapter ../my-agent/examples/
 ```
 
-Keep the `examples/generic-adapter/` path when trying the included suites. To run the command suite with GitHub Actions, copy the [example workflow](../../.github/workflows/7runs.yml) into `.github/workflows/7runs.yml`. From your repository’s Actions tab, choose **7runs agent check** and **Run workflow**. Leave the suite path as shown for the default example or enter the path to your suite. Download `7runs-reports` from the completed run to read its HTML and JSON files. Add `.7runs/` to your own repository’s `.gitignore`. Review what run data you want to retain in CI before running it on private inputs.
+Keep the `examples/generic-adapter/` path when trying the included suites. To run your suite on GitHub, follow the [workflow setup and report download instructions](../github-actions/README.md). Add `.7runs/` to your own repository’s `.gitignore`. Review what run data you want to retain in CI before running it on private inputs.
