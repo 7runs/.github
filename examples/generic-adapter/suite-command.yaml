@@ -1,0 +1,32 @@
+# Generic-adapter demo — the COMMAND adapter.
+# Runs the trivial local agent (agent.mjs) via stdin/stdout, shell-free.
+#   7runs run examples/generic-adapter/suite-command.yaml --reps 7
+name: generic-adapter-demo-command
+adapter:
+  type: command
+  command: ["node", "examples/generic-adapter/agent.mjs"]
+  # cwd defaults to a per-case sandbox temp dir; this agent lives in the repo and
+  # needs no per-case files, so run it from the repo root (".") instead.
+  cwd: "."
+  # Bare executables (like `node`) are resolved via PATH, which the allowlist-only
+  # child env does not inherit — so PATH must be passed through explicitly.
+  env_passthrough: ["PATH"]
+defaults:
+  reps: 3
+  timeout_s: 30
+cases:
+  - id: refund
+    tags: [routine]
+    input: { prompt: "I subscribed 5 days ago, can I get a refund?" }
+    checks:
+      - contains: "REFUND_OK"
+  - id: cancel
+    tags: [routine]
+    input: { prompt: "How do I cancel my subscription?" }
+    checks:
+      - contains: "CANCEL"
+  - id: unknown
+    tags: [edge]
+    input: { prompt: "asdfqwer zzz" }
+    checks:
+      - regex: "VERDICT:\\s*UNKNOWN"

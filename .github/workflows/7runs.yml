@@ -1,0 +1,58 @@
+name: 7runs agent check
+
+on:
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: Path to your suite YAML from the repository root
+        required: true
+        default: examples/generic-adapter/suite-command.yaml
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+          package-manager-cache: false
+
+      - name: Install 7runs
+        run: npm install --global @7runs/7runs@0.1.0
+
+      - name: Run the suite and generate reports
+        env:
+          SUITE: ${{ inputs.suite || 'examples/generic-adapter/suite-command.yaml' }}
+        run: |
+          store="$RUNNER_TEMP/7runs-store"
+          run_id=$(7runs run "./$SUITE" --reps 7 --out "$store" --quiet)
+          7runs report "$run_id" --out "$store"
+          mkdir -p "$RUNNER_TEMP/7runs-reports"
+          cp "$store/runs/$run_id/report.html" "$store/runs/$run_id/report.json" "$RUNNER_TEMP/7runs-reports/"
+
+      - name: Upload HTML and JSON reports
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: 7runs-reports
+          path: ${{ runner.temp }}/7runs-reports/
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Require every execution to pass
+        run: |
+          node --input-type=module - "$RUNNER_TEMP/7runs-reports/report.json" <<'JS'
+          import { readFileSync } from 'node:fs';
+          const report = JSON.parse(readFileSync(process.argv[2], 'utf8'));
+          const { passes, executions } = report.metrics.overall;
+          console.log(`${passes}/${executions} executions passed`);
+          if (!Number.isInteger(executions) || executions < 1 || passes !== executions) process.exitCode = 1;
+          JS

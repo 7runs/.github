@@ -1,0 +1,31 @@
+# Generic-adapter demo — the HTTP adapter.
+# Same three cases as suite-command.yaml, against the local demo server, so the
+# verdicts are identical: scoring is provider-independent.
+#
+#   node examples/generic-adapter/server.mjs            # start in another terminal
+#   7runs run examples/generic-adapter/suite-http.yaml --reps 7
+name: generic-adapter-demo-http
+adapter:
+  type: http
+  url: http://127.0.0.1:8787/
+  method: POST
+  response_path: output
+defaults:
+  reps: 3
+  timeout_s: 30
+cases:
+  - id: refund
+    tags: [routine]
+    input: { prompt: "I subscribed 5 days ago, can I get a refund?" }
+    checks:
+      - contains: "REFUND_OK"
+  - id: cancel
+    tags: [routine]
+    input: { prompt: "How do I cancel my subscription?" }
+    checks:
+      - contains: "CANCEL"
+  - id: unknown
+    tags: [edge]
+    input: { prompt: "asdfqwer zzz" }
+    checks:
+      - regex: "VERDICT:\\s*UNKNOWN"
