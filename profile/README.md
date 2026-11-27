@@ -1,5 +1,13 @@
 # 7runs
 
+**Created by [Payam Mohammadi](https://impayam.com).**
+
+**436 npm downloads across released versions** · **168 downloads of v0.1.0 in npm's latest seven-day report**
+
+Download snapshot checked on **November 27, 2026**. [All-version count](https://api.npmjs.org/downloads/point/2026-07-17:2026-11-27/@7runs%2F7runs) · [Per-version count](https://api.npmjs.org/versions/@7runs%2F7runs/last-week) · [Recorded snapshot](../docs/npm-downloads-2026-11-27.json)
+
+[Meet the creator](https://impayam.com) · [Star the public 7runs guides](https://github.com/7runs/.github)
+
 Run the same prompt several times and see how often your agent passes the checks you set. Inspect the answer behind a failure, then compare runs after changing a prompt or model.
 
 ## Get your first report
