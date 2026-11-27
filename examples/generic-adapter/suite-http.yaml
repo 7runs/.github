@@ -3,7 +3,7 @@
 # verdicts are identical: scoring is provider-independent.
 #
 #   node examples/generic-adapter/server.mjs            # start in another terminal
-#   7runs run examples/generic-adapter/suite-http.yaml --reps 7
+#   node dist/index.js run examples/generic-adapter/suite-http.yaml --reps 7
 name: generic-adapter-demo-http
 adapter:
   type: http

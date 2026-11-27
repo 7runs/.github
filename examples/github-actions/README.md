@@ -1,5 +1,9 @@
 # Run your agent in GitHub Actions
 
+> The engine repository is currently private while public access is being prepared. Source installation and the workflow below require repository access; anonymous installation is not available yet.
+
+The workflow downloads the engine source from `7runs/7runs`, checks out the tested revision, installs its dependencies and builds it. It does not install a 7runs package from npm. Do not add private-engine credentials to a public example; wait for public source access before using the workflow anonymously.
+
 Copy the [workflow](../../.github/workflows/7runs.yml) to `.github/workflows/7runs.yml` in your repository. To try the bundled command agent, also copy the [example folder](../generic-adapter/) to `examples/generic-adapter/`. For example, from the public examples checkout with your own repository at `../my-agent`, run:
 
 ```sh

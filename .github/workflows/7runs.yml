@@ -26,16 +26,22 @@ jobs:
           node-version: '22'
           package-manager-cache: false
 
-      - name: Install 7runs
-        run: npm install --global @7runs/7runs@0.1.0
+      - name: Build 7runs from GitHub source
+        run: |
+          engine="$RUNNER_TEMP/7runs-engine"
+          git clone https://github.com/7runs/7runs.git "$engine"
+          git -C "$engine" checkout --detach 2e5d5e47b01d0870026b7ea172d9d43af24cd3d6
+          npm ci --prefix "$engine"
+          npm run build:cli --prefix "$engine"
+          echo "SEVENRUNS_CLI=$engine/dist/index.js" >> "$GITHUB_ENV"
 
       - name: Run the suite and generate reports
         env:
           SUITE: ${{ inputs.suite || 'examples/generic-adapter/suite-command.yaml' }}
         run: |
           store="$RUNNER_TEMP/7runs-store"
-          run_id=$(7runs run "./$SUITE" --reps 7 --out "$store" --quiet)
-          7runs report "$run_id" --out "$store"
+          run_id=$(node "$SEVENRUNS_CLI" run "./$SUITE" --reps 7 --out "$store" --quiet)
+          node "$SEVENRUNS_CLI" report "$run_id" --out "$store"
           mkdir -p "$RUNNER_TEMP/7runs-reports"
           cp "$store/runs/$run_id/report.html" "$store/runs/$run_id/report.json" "$RUNNER_TEMP/7runs-reports/"
 

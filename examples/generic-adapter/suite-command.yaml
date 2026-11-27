@@ -1,6 +1,6 @@
 # Generic-adapter demo — the COMMAND adapter.
 # Runs the trivial local agent (agent.mjs) via stdin/stdout, shell-free.
-#   7runs run examples/generic-adapter/suite-command.yaml --reps 7
+#   node dist/index.js run examples/generic-adapter/suite-command.yaml --reps 7
 name: generic-adapter-demo-command
 adapter:
   type: command
