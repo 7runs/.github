@@ -1,18 +1,31 @@
 # 7runs
 
+**Created by [Payam Mohammadi](https://impayam.com).**
+
+**436 npm downloads across released versions** · **168 downloads of v0.1.0 in the recorded seven-day report**
+
+Download snapshot checked on **November 27, 2026**. [All-version count](https://api.npmjs.org/downloads/point/2026-07-17:2026-11-27/@7runs%2F7runs) · [Per-version count](https://api.npmjs.org/versions/@7runs%2F7runs/last-week) · [Recorded snapshot](../docs/npm-downloads-2026-11-27.json)
+
+[Meet the creator](https://impayam.com) · [Star the public 7runs guides](https://github.com/7runs/.github)
+
 Run the same prompt several times and see how often your agent passes the checks you set. Inspect the answer behind a failure, then compare runs after changing a prompt or model.
 
 ## Get your first report
 
-With Node.js 20 or later and npm installed, run this in a terminal. The starter agent runs locally without a model account or API key.
+Use Git, Node.js 20 or later and npm. Download the engine from GitHub and build it locally. npm installs the dependencies; it does not download a published 7runs package.
+
+> The engine repository is currently private while public access is being prepared. Source installation and the workflow below require repository access; anonymous installation is not available yet.
 
 ```sh
-npm install --global @7runs/7runs@0.1.0
+git clone https://github.com/7runs/7runs.git
+cd 7runs
+npm ci
+npm run build:cli
 mkdir 7runs-demo
 cd 7runs-demo
-7runs init
-7runs run example-suite.yaml --reps 7
-7runs report latest
+node ../dist/index.js init
+node ../dist/index.js run example-suite.yaml --reps 7
+node ../dist/index.js report latest
 ```
 
 Expect **14/14 executions passed**. The suite checks a text verdict and a JSON response, seven times each. Open the HTML path printed by the last command to see the results. The JSON report is beside it.

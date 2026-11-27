@@ -1,0 +1,16 @@
+{
+  "checked_on": "2026-11-27",
+  "package": "@7runs/7runs",
+  "all_releases": {
+    "downloads": 436,
+    "start": "2026-07-17",
+    "end": "2026-11-27",
+    "source": "https://api.npmjs.org/downloads/point/2026-07-17:2026-11-27/@7runs%2F7runs"
+  },
+  "latest_seven_day_report_by_version": {
+    "0.0.1": 40,
+    "0.1.0": 168,
+    "source": "https://api.npmjs.org/versions/@7runs%2F7runs/last-week"
+  },
+  "measurement": "Recorded npm package downloads. This snapshot does not measure unique people, customers, or active users."
+}

@@ -4,21 +4,24 @@ Choose the interface your agent already has. Both examples use the same three ca
 
 ## Get the files
 
-Use Node.js 20 or later. From a terminal, install the CLI and clone the public examples.
+Use Git, Node.js 20 or later and npm. The engine checkout includes the adapter examples.
+
+> The engine repository is currently private while public access is being prepared. Source installation and the workflow below require repository access; anonymous installation is not available yet.
 
 ```sh
-npm install --global @7runs/7runs@0.1.0
-git clone --depth 1 https://github.com/7runs/.github.git 7runs-examples
-cd 7runs-examples
+git clone https://github.com/7runs/7runs.git
+cd 7runs
+npm ci
+npm run build:cli
 ```
 
-You can also [download the ZIP](https://github.com/7runs/.github/archive/refs/heads/main.zip). Unzip it, open a terminal in the directory containing `examples/` and run the same npm install command. Run the commands below from that directory.
+You can also [download the engine source as a ZIP](https://github.com/7runs/7runs/archive/refs/heads/main.zip) once repository access is available. Unzip it, open a terminal in the directory containing `package.json`, then run `npm ci` and `npm run build:cli`. Run all commands below from that engine directory.
 
 ## Connect a local command
 
 ```sh
-7runs run examples/generic-adapter/suite-command.yaml --reps 7
-7runs report latest
+node dist/index.js run examples/generic-adapter/suite-command.yaml --reps 7
+node dist/index.js report latest
 ```
 
 The included [suite](suite-command.yaml) starts [agent.mjs](agent.mjs) directly for each execution. The script reads the prompt from stdin and writes the answer to stdout. Expect **21/21 executions passed**.
@@ -46,8 +49,8 @@ node examples/generic-adapter/server.mjs
 In a second terminal at the same repository root, run the [HTTP suite](suite-http.yaml).
 
 ```sh
-7runs run examples/generic-adapter/suite-http.yaml --reps 7
-7runs report latest
+node dist/index.js run examples/generic-adapter/suite-http.yaml --reps 7
+node dist/index.js report latest
 ```
 
 The server listens on `127.0.0.1:8787` and uses the same [agent logic](logic.mjs) as the command example. Expect **21/21 executions passed**. Stop the sample server with Ctrl+C when finished.
@@ -73,7 +76,7 @@ Open the printed `report.html` path to see the overall pass rate and which cases
 
 ## Run the suite in your repository
 
-From the examples checkout, copy the adapter files into your own repository. If your repository is next to this checkout and is named `my-agent`, these commands copy just the examples into it.
+From the engine checkout, copy the adapter files into your own repository. If your repository is next to this checkout and is named `my-agent`, these commands copy just the examples into it.
 
 ```sh
 mkdir -p ../my-agent/examples
