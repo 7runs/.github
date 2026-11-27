@@ -44,7 +44,7 @@ The [example files](https://github.com/7runs/.github/tree/main/examples/generic-
 
 ## Engine license
 
-Independent builders can test their own projects for free, including apps they sell. Testing for an employer, client company or other organization requires an organization license, even if one person runs the tests. [Request an organization license](https://7runs.dev/#request-license).
+Independent builders can test their own projects for free, including apps they sell. Testing for an employer, client company or other organization requires an organization license, even if one person runs the tests. [View organization license pricing](https://7runs.dev/#organization-license).
 
 See how four code-review agents performed across three model tiers in the [benchmark report](https://7runs.dev/leaderboard). The [leaderboard repository](https://github.com/7runs/leaderboard) includes the test cases and raw runs.
 
