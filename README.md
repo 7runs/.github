@@ -12,4 +12,4 @@ If these guides help you test an agent, star this repository to support the proj
 
 - [Connect a local command](examples/generic-adapter/README.md#connect-a-local-command) or [an HTTP endpoint](examples/generic-adapter/README.md#connect-an-http-endpoint) with runnable examples.
 - [Run a suite with GitHub Actions](examples/github-actions/README.md) and download its HTML and JSON reports.
-- [Request a license](https://7runs.dev/#request-license) to test on behalf of an organization.
+- [View organization license pricing](https://7runs.dev/#organization-license) to test on behalf of an organization.

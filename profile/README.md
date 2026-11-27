@@ -12,7 +12,7 @@ Run the same prompt several times and see how often your agent passes the checks
 
 ## Get your first report
 
-Use Git, Node.js 20 or later and npm. Download the engine from GitHub and build it locally. npm installs the dependencies; it does not download a published 7runs package.
+Use Git, Node.js 22.13+ (22.x) or 24+ and npm. Download the engine from GitHub and build it locally. npm installs the dependencies; it does not download a published 7runs package.
 
 > The engine repository is currently private while public access is being prepared. Source installation and the workflow below require repository access; anonymous installation is not available yet.
 
@@ -44,7 +44,7 @@ The [example files](https://github.com/7runs/.github/tree/main/examples/generic-
 
 ## Engine license
 
-Independent builders can test their own projects for free, including apps they sell. Testing for an employer, client company or other organization requires an organization license, even if one person runs the tests. [Request an organization license](https://7runs.dev/#request-license).
+Independent builders can test their own projects for free, including apps they sell. Testing for an employer, client company or other organization requires an organization license, even if one person runs the tests. [View organization license pricing](https://7runs.dev/#organization-license).
 
 See how four code-review agents performed across three model tiers in the [benchmark report](https://7runs.dev/leaderboard). The [leaderboard repository](https://github.com/7runs/leaderboard) includes the test cases and raw runs.
 

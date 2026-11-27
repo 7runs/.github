@@ -30,7 +30,7 @@ jobs:
         run: |
           engine="$RUNNER_TEMP/7runs-engine"
           git clone https://github.com/7runs/7runs.git "$engine"
-          git -C "$engine" checkout --detach 2e5d5e47b01d0870026b7ea172d9d43af24cd3d6
+          git -C "$engine" checkout --detach b01c0747ea12cf697489604fb356b4f98b58c9e3
           npm ci --prefix "$engine"
           npm run build:cli --prefix "$engine"
           echo "SEVENRUNS_CLI=$engine/dist/index.js" >> "$GITHUB_ENV"
