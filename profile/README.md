@@ -12,7 +12,7 @@ Run the same prompt several times and see how often your agent passes the checks
 
 ## Get your first report
 
-Use Git, Node.js 20 or later and npm. Download the engine from GitHub and build it locally. npm installs the dependencies; it does not download a published 7runs package.
+Use Git, Node.js 22.13+ (22.x) or 24+ and npm. Download the engine from GitHub and build it locally. npm installs the dependencies; it does not download a published 7runs package.
 
 > The engine repository is currently private while public access is being prepared. Source installation and the workflow below require repository access; anonymous installation is not available yet.
 
