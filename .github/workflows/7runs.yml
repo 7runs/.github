@@ -29,8 +29,8 @@ jobs:
       - name: Build 7runs from GitHub source
         run: |
           engine="$RUNNER_TEMP/7runs-engine"
-          git clone https://github.com/7runs/7runs.git "$engine"
-          git -C "$engine" checkout --detach b01c0747ea12cf697489604fb356b4f98b58c9e3
+          git clone https://github.com/7runs/engine.git "$engine"
+          git -C "$engine" checkout --detach 1f94eba99e888c3f7f91925df3c455aa2ced14ef
           npm ci --prefix "$engine"
           npm run build:cli --prefix "$engine"
           echo "SEVENRUNS_CLI=$engine/dist/index.js" >> "$GITHUB_ENV"

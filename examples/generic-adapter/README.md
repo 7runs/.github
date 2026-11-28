@@ -6,16 +6,14 @@ Choose the interface your agent already has. Both examples use the same three ca
 
 Use Git, Node.js 20 or later and npm. The engine checkout includes the adapter examples.
 
-> The engine repository is currently private while public access is being prepared. Source installation and the workflow below require repository access; anonymous installation is not available yet.
-
 ```sh
-git clone https://github.com/7runs/7runs.git
-cd 7runs
+git clone https://github.com/7runs/engine.git
+cd engine
 npm ci
 npm run build:cli
 ```
 
-You can also [download the engine source as a ZIP](https://github.com/7runs/7runs/archive/refs/heads/main.zip) once repository access is available. Unzip it, open a terminal in the directory containing `package.json`, then run `npm ci` and `npm run build:cli`. Run all commands below from that engine directory.
+You can also [download the engine source as a ZIP](https://github.com/7runs/engine/archive/refs/heads/main.zip). Unzip it, open a terminal in the directory containing `package.json`, then run `npm ci` and `npm run build:cli`. Run all commands below from that engine directory.
 
 ## Connect a local command
 

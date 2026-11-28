@@ -6,7 +6,7 @@
 
 Download snapshot checked on **November 27, 2026**. [All-version count](https://api.npmjs.org/downloads/point/2026-07-17:2026-11-27/@7runs%2F7runs) · [Per-version count](https://api.npmjs.org/versions/@7runs%2F7runs/last-week) · [Recorded snapshot](../docs/npm-downloads-2026-11-27.json)
 
-[Meet the creator](https://impayam.com) · [Star the public 7runs guides](https://github.com/7runs/.github)
+[Meet the creator](https://impayam.com) · [Star the 7runs engine](https://github.com/7runs/engine)
 
 Run the same prompt several times and see how often your agent passes the checks you set. Inspect the answer behind a failure, then compare runs after changing a prompt or model.
 
@@ -14,11 +14,11 @@ Run the same prompt several times and see how often your agent passes the checks
 
 Use Git, Node.js 22.13+ (22.x) or 24+ and npm. Download the engine from GitHub and build it locally. npm installs the dependencies; it does not download a published 7runs package.
 
-> The engine repository is currently private while public access is being prepared. Source installation and the workflow below require repository access; anonymous installation is not available yet.
+Test runs automatically send limited technical statistics. Review the [privacy policy](https://7runs.dev/privacy#technical-statistics) before running the CLI.
 
 ```sh
-git clone https://github.com/7runs/7runs.git
-cd 7runs
+git clone https://github.com/7runs/engine.git
+cd engine
 npm ci
 npm run build:cli
 mkdir 7runs-demo
